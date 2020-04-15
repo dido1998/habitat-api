@@ -8,10 +8,19 @@ from typing import Any, List, Optional
 
 import numpy as np
 from gym import spaces
+from enum import Enum
+
 
 import habitat_sim
+from habitat_sim.gfx import (
+    DEFAULT_LIGHTING_KEY,
+    NO_LIGHT_KEY,
+    LightInfo,
+    LightPositionModel,
+)
 from habitat.core.logging import logger
 from habitat.core.registry import registry
+from habitat.core.domain_randomization import DomainRandomization
 from habitat.core.simulator import (
     AgentState,
     Config,
@@ -39,6 +48,13 @@ def check_sim_obs(obs, sensor):
         "Observation corresponding to {} not present in "
         "simulator's observations".format(sensor.uuid)
     )
+
+
+class SimulatorActions(Enum):
+    FORWARD = 0
+    LEFT = 1
+    RIGHT = 2
+    STOP = 3
 
 
 @registry.register_sensor
@@ -137,7 +153,6 @@ class HabitatSimSemanticSensor(SemanticSensor):
         check_sim_obs(obs, self)
         return obs
 
-
 @registry.register_simulator(name="Sim-v0")
 class HabitatSim(Simulator):
     r"""Simulator wrapper over habitat-sim
@@ -151,6 +166,7 @@ class HabitatSim(Simulator):
     def __init__(self, config: Config) -> None:
         self.config = config
         agent_config = self._get_agent_config()
+
 
         sim_sensors = []
         for sensor_name in agent_config.SENSORS:
@@ -171,6 +187,8 @@ class HabitatSim(Simulator):
         )
         self._prev_sim_obs = None
 
+        self.domain_randomizer = DomainRandomization(config, self._sim)
+
     def create_sim_config(
         self, _sensor_suite: SensorSuite
     ) -> habitat_sim.Configuration:
@@ -178,6 +196,8 @@ class HabitatSim(Simulator):
         sim_config.scene.id = self.config.SCENE
         sim_config.gpu_device_id = self.config.HABITAT_SIM_V0.GPU_DEVICE_ID
         sim_config.allow_sliding = self.config.HABITAT_SIM_V0.ALLOW_SLIDING
+        if self.config.DOMAIN_RANDOMIZATION.ENABLE:
+            sim_config.scene_light_setup = DEFAULT_LIGHTING_KEY
         agent_config = habitat_sim.AgentConfiguration()
         overwrite_config(
             config_from=self._get_agent_config(), config_to=agent_config
@@ -229,8 +249,9 @@ class HabitatSim(Simulator):
 
         return is_updated
 
-    def reset(self):
+    def reset(self):        
         sim_obs = self._sim.reset()
+        self.domain_randomizer.sample()
         if self._update_agents_state():
             sim_obs = self._sim.get_sensor_observations()
 
@@ -271,6 +292,7 @@ class HabitatSim(Simulator):
         # TODO(maksymets): Switch to Habitat-Sim more efficient caching
         is_same_scene = config.SCENE == self._current_scene
         self.config = config
+
         self.sim_config = self.create_sim_config(self._sensor_suite)
         if not is_same_scene:
             self._current_scene = config.SCENE
