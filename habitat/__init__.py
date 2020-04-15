@@ -16,6 +16,7 @@ from habitat.core.registry import registry
 from habitat.core.simulator import Sensor, SensorSuite, SensorTypes, Simulator
 from habitat.core.vector_env import ThreadedVectorEnv, VectorEnv
 from habitat.datasets import make_dataset
+from habitat.subdomains import make_subdomain
 from habitat.version import VERSION as __version__  # noqa
 
 __all__ = [
@@ -38,4 +39,5 @@ __all__ = [
     "Simulator",
     "ThreadedVectorEnv",
     "VectorEnv",
+    "make_subdomain",
 ]

@@ -193,6 +193,18 @@ class Registry(metaclass=Singleton):
         )
 
     @classmethod
+    def register_subdomain(
+        cls, to_register = None, *, name: Optional[str] = None
+    ):
+        from habitat.core.subdomain import Subdomain
+        return cls._register_impl(
+            "subdomain",
+            to_register,
+            name,
+            assert_type = Subdomain
+        )
+
+    @classmethod
     def _get_impl(cls, _type, name):
         return cls.mapping[_type].get(name, None)
 
@@ -223,6 +235,10 @@ class Registry(metaclass=Singleton):
     @classmethod
     def get_action_space_configuration(cls, name):
         return cls._get_impl("action_space_config", name)
+
+    @classmethod
+    def get_subdomain(cls, name):
+        return cls._get_impl("subdomain", name)
 
 
 registry = Registry()

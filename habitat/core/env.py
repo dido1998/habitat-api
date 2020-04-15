@@ -210,6 +210,7 @@ class Env:
     def _update_step_stats(self) -> None:
         self._elapsed_steps += 1
         self._episode_over = not self._task.is_episode_active
+        
         if self._past_limit():
             self._episode_over = True
 
