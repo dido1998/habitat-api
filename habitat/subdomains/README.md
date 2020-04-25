@@ -26,7 +26,7 @@ In this implementation of domain randomization, we consider various subdomains w
     - orientationx_range : [-0.5, 0.5]
     - orientationy_range : [-0.5, 0.5]
     - orientationz_range : [0.0, 0.0]
-    - noise_model : ["None", "GaussianNoiseModel", "PoissonNoiseModel", "RedwoodDepthNoiseModel", "SaltAndPepperNoiseModel", "SpeckleNoiseModel"]
+    - noise_model : [`None`, `GaussianNoiseModel`, `PoissonNoiseModel`, `RedwoodDepthNoiseModel`, `SaltAndPepperNoiseModel`, `SpeckleNoiseModel`]
 - **Agent Subdomain** : This subdomain controls and randomizes agent properties. The following agent properties are included:
     - height_range : [1.5, 2.5]
     - radius_range : [0.1, 2.1]
