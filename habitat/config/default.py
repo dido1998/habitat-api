@@ -52,13 +52,13 @@ _C.TASK.SUCCESS_DISTANCE = 0.2
 _C.TASK.SENSORS = []
 _C.TASK.MEASUREMENTS = []
 _C.TASK.GOAL_SENSOR_UUID = "pointgoal"
-_C.TASK.POSSIBLE_ACTIONS = ["STOP", "MOVE_FORWARD", "TURN_LEFT", "TURN_RIGHT"]
+_C.TASK.POSSIBLE_ACTIONS = ["MOVE_FORWARD", "TURN_LEFT", "TURN_RIGHT"]
 # -----------------------------------------------------------------------------
 # # ACTIONS
 # -----------------------------------------------------------------------------
 ACTIONS = CN()
-ACTIONS.STOP = CN()
-ACTIONS.STOP.TYPE = "StopAction"
+#ACTIONS.STOP = CN()
+#ACTIONS.STOP.TYPE = "StopAction"
 # -----------------------------------------------------------------------------
 # # NAVIGATION ACTIONS
 # -----------------------------------------------------------------------------
@@ -203,7 +203,7 @@ _C.SIMULATOR.TYPE = "Sim-v0"
 _C.SIMULATOR.ACTION_SPACE_CONFIG = "v0"
 _C.SIMULATOR.FORWARD_STEP_SIZE = 0.25  # in metres
 _C.SIMULATOR.SCENE = (
-    "data/scene_datasets/habitat-test-scenes/van-gogh-room.glb"
+    "data/scene_datasets/gibson/gibson/Anaheim.glb"
 )
 _C.SIMULATOR.SEED = _C.SEED
 _C.SIMULATOR.TURN_ANGLE = 10  # angle to rotate left or right in degrees
@@ -253,6 +253,12 @@ _C.SIMULATOR.AGENT_0.IS_SET_START_STATE = False
 _C.SIMULATOR.AGENT_0.START_POSITION = [0, 0, 0]
 _C.SIMULATOR.AGENT_0.START_ROTATION = [0, 0, 0, 1]
 _C.SIMULATOR.AGENTS = ["AGENT_0"]
+
+_C.SIMULATOR.DOMAIN_RANDOMIZATION = CN()
+_C.SIMULATOR.DOMAIN_RANDOMIZATION.TYPE = "domain_randomization"
+_C.SIMULATOR.DOMAIN_RANDOMIZATION.ENABLE = False
+_C.SIMULATOR.DOMAIN_RANDOMIZATION.DEFAULT_DATA_PATH = "configs/domain_randomization/default.domain_randomization_properties.json"
+_C.SIMULATOR.DOMAIN_RANDOMIZATION.DATA_PATH = "configs/domain_randomization/default.domain_randomization_properties.json"
 # -----------------------------------------------------------------------------
 # SIMULATOR HABITAT_SIM_V0
 # -----------------------------------------------------------------------------

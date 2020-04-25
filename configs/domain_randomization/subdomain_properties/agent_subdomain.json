@@ -1,0 +1,11 @@
+{
+	"name" : "AgentSubdomain",
+	"height_range" : [1.5, 2.5],
+	"radius_range" : [0.1, 2.1],
+	"linear_acceleration_range" : [10.0, 40.0],
+	"angular_acceleration_range" : [6.28, 18.84],
+	"linear_friction_range": [0.1, 2.5],
+	"angular_friction_range": [1.0, 2.0],
+	"original_probability": 0.1
+
+}

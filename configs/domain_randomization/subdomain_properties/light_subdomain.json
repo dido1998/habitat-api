@@ -1,0 +1,11 @@
+{
+	"name": "LightSubdomain",
+	"x_range": [-1.0, 1.0],
+	"y_range": [-1.0, 1.0],
+	"z_range": [-1.0, 1.0],
+	"r_range": [0.9, 1.0],
+	"g_range": [0.9, 1.0],
+	"b_range": [0.0, 1.0],
+	"a_range": [0.0, 1.0],
+	"original_probability": 0.1
+}

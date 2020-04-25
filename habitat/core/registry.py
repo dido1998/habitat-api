@@ -5,20 +5,14 @@
 # LICENSE file in the root directory of this source tree.
 
 r"""Registry is central source of truth in Habitat.
-
 Taken from Pythia, it is inspired from Redux's concept of global store.
 Registry maintains mappings of various information to unique keys. Special
 functions in registry can be used as decorators to register different kind of
 classes.
-
 Import the global registry object using
-
 .. code:: py
-
     from habitat.core.registry import registry
-
 Various decorators for registry different kind of classes with unique keys
-
 -   Register a task: ``@registry.register_task``
 -   Register a task action: ``@registry.register_task_action``
 -   Register a simulator: ``@registry.register_simulator``
@@ -58,26 +52,18 @@ class Registry(metaclass=Singleton):
     @classmethod
     def register_task(cls, to_register=None, *, name: Optional[str] = None):
         r"""Register a task to registry with key :p:`name`
-
         :param name: Key with which the task will be registered.
             If :py:`None` will use the name of the class
-
         .. code:: py
-
             from habitat.core.registry import registry
             from habitat.core.embodied_task import EmbodiedTask
-
             @registry.register_task
             class MyTask(EmbodiedTask):
                 pass
-
-
             # or
-
             @registry.register_task(name="MyTaskName")
             class MyTask(EmbodiedTask):
                 pass
-
         """
         from habitat.core.embodied_task import EmbodiedTask
 
@@ -90,26 +76,18 @@ class Registry(metaclass=Singleton):
         cls, to_register=None, *, name: Optional[str] = None
     ):
         r"""Register a simulator to registry with key :p:`name`
-
         :param name: Key with which the simulator will be registered.
             If :py:`None` will use the name of the class
-
         .. code:: py
-
             from habitat.core.registry import registry
             from habitat.core.simulator import Simulator
-
             @registry.register_simulator
             class MySimulator(Simulator):
                 pass
-
-
             # or
-
             @registry.register_simulator(name="MySimName")
             class MySimulator(Simulator):
                 pass
-
         """
         from habitat.core.simulator import Simulator
 
@@ -120,7 +98,6 @@ class Registry(metaclass=Singleton):
     @classmethod
     def register_sensor(cls, to_register=None, *, name: Optional[str] = None):
         r"""Register a sensor to registry with key :p:`name`
-
         :param name: Key with which the sensor will be registered.
             If :py:`None` will use the name of the class
         """
@@ -133,7 +110,6 @@ class Registry(metaclass=Singleton):
     @classmethod
     def register_measure(cls, to_register=None, *, name: Optional[str] = None):
         r"""Register a measure to registry with key :p:`name`
-
         :param name: Key with which the measure will be registered.
             If :py:`None` will use the name of the class
         """
@@ -148,7 +124,6 @@ class Registry(metaclass=Singleton):
         cls, to_register=None, *, name: Optional[str] = None
     ):
         r"""Add a task action in this registry under key 'name'
-
         :param action_space: An action space that describes parameters to the
             task action's method. If :py:`None` then the task action's method
             takes no parameters.
@@ -164,7 +139,6 @@ class Registry(metaclass=Singleton):
     @classmethod
     def register_dataset(cls, to_register=None, *, name: Optional[str] = None):
         r"""Register a dataset to registry with key :p:`name`
-
         :param name: Key with which the dataset will be registered.
             If :py:`None` will use the name of the class
         """
@@ -179,7 +153,6 @@ class Registry(metaclass=Singleton):
         cls, to_register=None, *, name: Optional[str] = None
     ):
         r"""Register a action space configuration to registry with key :p:`name`
-
         :param name: Key with which the action space will be registered.
             If :py:`None` will use the name of the class
         """
@@ -190,6 +163,18 @@ class Registry(metaclass=Singleton):
             to_register,
             name,
             assert_type=ActionSpaceConfiguration,
+        )
+
+    @classmethod
+    def register_subdomain(
+        cls, to_register = None, *, name: Optional[str] = None
+    ):
+        from habitat.core.subdomain import Subdomain
+        return cls._register_impl(
+            "subdomain",
+            to_register,
+            name,
+            assert_type = Subdomain
         )
 
     @classmethod
@@ -223,6 +208,10 @@ class Registry(metaclass=Singleton):
     @classmethod
     def get_action_space_configuration(cls, name):
         return cls._get_impl("action_space_config", name)
+
+    @classmethod
+    def get_subdomain(cls, name):
+        return cls._get_impl("subdomain", name)
 
 
 registry = Registry()

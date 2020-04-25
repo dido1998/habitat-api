@@ -1,0 +1,5 @@
+{
+	"name":"ObjectSubdomain",
+	"num_objects_range": [0, 10],
+	"original_probability": 0.1
+}

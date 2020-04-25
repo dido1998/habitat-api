@@ -1,0 +1,14 @@
+{
+	"name": "SensorSubdomain",
+	"near_range": [0.01, 1.0],
+	"far_range": [750, 1250],
+	"hfov_range": [70, 130],
+	"positionx_range": [0.0, 0.0],
+	"positiony_range": [1.0, 2.5],
+	"positionz_range": [0.0, 0.0],
+	"orientationx_range": [-0.5, 0.5],
+	"orientationy_range": [-0.5, 0.5],
+	"orientationz_range": [0.0, 0.0],
+	"noise_model": ["None", "GaussianNoiseModel", "PoissonNoiseModel", "RedwoodDepthNoiseModel", "SaltAndPepperNoiseModel", "SpeckleNoiseModel"],
+	"original_probability": 0.1
+}

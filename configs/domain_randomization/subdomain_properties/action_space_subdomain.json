@@ -1,0 +1,6 @@
+{
+	"name": "ActionSpaceSubdomain",
+	"forward_range": [0.05, 0.50],
+	"turn_range": [5, 15],
+	"original_probability": 0.1	
+}
