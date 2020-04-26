@@ -16,7 +16,7 @@ from habitat.core.simulator import Config
 
 @registry.register_subdomain(name = "object_subdomain")
 class ObjectSubdomain(Subdomain):
-    def __init__(self, subdomain_config = None, default_subdomain_config = None, sim = None, sim_cfg = None):
+    def __init__(self, subdomain_config = None, default_subdomain_config = None, sim = None):
         super(ObjectSubdomain, self).__init__(subdomain_config, default_subdomain_config)
         self.sim = sim
         new_physics_file = self.get_property("physics_config_file")

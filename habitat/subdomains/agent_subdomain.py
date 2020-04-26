@@ -14,7 +14,7 @@ from habitat.core.registry import registry
 
 @registry.register_subdomain(name = "agent_subdomain")
 class AgentSubdomain(Subdomain):
-	def __init__(self, subdomain_config = None, default_subdomain_config = None, sim = None, sim_cfg = None):
+	def __init__(self, subdomain_config = None, default_subdomain_config = None, sim = None):
 		super(AgentSubdomain, self).__init__(subdomain_config, default_subdomain_config)
 		self.sim = sim._sim
 		self.num_agents = len(self.sim.config.agents)

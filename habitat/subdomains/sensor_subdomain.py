@@ -35,7 +35,7 @@ def overwrite_config(config_from: Config, config_to: Any) -> None:
 
 @registry.register_subdomain(name = "sensor_subdomain")
 class SensorSubdomain(Subdomain):
-	def __init__(self, subdomain_config = None, default_subdomain_config = None, sim = None, sim_cfg = None):
+	def __init__(self, subdomain_config = None, default_subdomain_config = None, sim = None):
 		super(SensorSubdomain, self).__init__(subdomain_config, default_subdomain_config)
 		self.sim = sim
 		self.default_agent_id = self.sim._sim.config.sim_cfg.default_agent_id

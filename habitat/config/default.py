@@ -256,7 +256,7 @@ _C.SIMULATOR.AGENTS = ["AGENT_0"]
 
 _C.SIMULATOR.DOMAIN_RANDOMIZATION = CN()
 _C.SIMULATOR.DOMAIN_RANDOMIZATION.TYPE = "domain_randomization"
-_C.SIMULATOR.DOMAIN_RANDOMIZATION.ENABLE = False
+_C.SIMULATOR.DOMAIN_RANDOMIZATION.ENABLE = True
 _C.SIMULATOR.DOMAIN_RANDOMIZATION.DEFAULT_DATA_PATH = "configs/domain_randomization/default.domain_randomization_properties.json"
 _C.SIMULATOR.DOMAIN_RANDOMIZATION.DATA_PATH = "configs/domain_randomization/default.domain_randomization_properties.json"
 # -----------------------------------------------------------------------------

@@ -57,7 +57,7 @@ class DomainRandomization:
 
 		for s_user, s_default in zip(subdomain_config, default_subdomain_config):
 			if subdomain_config[s_user] is not None:
-				self.subdomains.append(make_subdomain(s_user, subdomain_config = subdomain_config[s_user], default_subdomain_config = default_subdomain_config[s_default], sim = sim, sim_cfg = sim_cfg))
+				self.subdomains.append(make_subdomain(s_user, subdomain_config = subdomain_config[s_user], default_subdomain_config = default_subdomain_config[s_default], sim = sim))
 				logger.info('loaded {} subdomain'.format(s_user))
 
 	def sample(self):
