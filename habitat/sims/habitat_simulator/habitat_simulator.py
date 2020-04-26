@@ -10,6 +10,12 @@ import numpy as np
 from gym import spaces
 
 import habitat_sim
+from habitat_sim.gfx import (
+    DEFAULT_LIGHTING_KEY,
+    NO_LIGHT_KEY,
+    LightInfo,
+    LightPositionModel,
+)
 from habitat.core.logging import logger
 from habitat.core.registry import registry
 from habitat.core.simulator import (
@@ -24,6 +30,7 @@ from habitat.core.simulator import (
     Simulator,
 )
 from habitat.core.spaces import Space
+from habitat.core.domain_randomization import DomainRandomization
 
 RGBSENSOR_DIMENSION = 3
 
@@ -186,6 +193,10 @@ class HabitatSim(Simulator):
         )
         self._prev_sim_obs = None
 
+        self.domain_randomizer = None
+        if self.config.DOMAIN_RANDOMIZATION.ENABLE:
+            self.domain_randomizer = DomainRandomization(config, self)
+
     def create_sim_config(
         self, _sensor_suite: SensorSuite
     ) -> habitat_sim.Configuration:
@@ -194,6 +205,8 @@ class HabitatSim(Simulator):
             config_from=self.config.HABITAT_SIM_V0, config_to=sim_config
         )
         sim_config.scene.id = self.config.SCENE
+        if self.config.DOMAIN_RANDOMIZATION.ENABLE:
+            sim_config.scene_light_setup = DEFAULT_LIGHTING_KEY
         agent_config = habitat_sim.AgentConfiguration()
         overwrite_config(
             config_from=self._get_agent_config(), config_to=agent_config
@@ -250,6 +263,8 @@ class HabitatSim(Simulator):
 
     def reset(self):
         sim_obs = self._sim.reset()
+        if self.domain_randomizer is not None:
+            self.domain_randomizer.sample()
         if self._update_agents_state():
             sim_obs = self._sim.get_sensor_observations()
 
