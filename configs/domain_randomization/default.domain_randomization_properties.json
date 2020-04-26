@@ -1,9 +1,5 @@
 {
 	"subdomains": [
-		"object_subdomain",
-		"light_subdomain",
-		"agent_subdomain",
-		"action_space_subdomain",
-		"sensor_subdomain"
+		"light_subdomain"
 	]
 }
