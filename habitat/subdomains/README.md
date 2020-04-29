@@ -60,6 +60,8 @@ Users may want to add more subdomains for randomization. For example, `habitat-s
 The following examples demonstrates domain randmization. Each example for each subdomain has varying properties that are randomly selected everytime `env.reset()` is called.
 
 ### Sensor Subomain
-     Example 1             |        Example 2         |       Example 3             
-:-------------------------:|:------------------------:|:--------------------:
-![](https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_1.png)  |  ![](https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_2.png) | ![](https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_3.png)
+ <p float="left">
+  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_1.png" width="100" />
+  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_2.png" width="100" /> 
+  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_3.png" width="100" />
+</p>
