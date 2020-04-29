@@ -9,38 +9,38 @@ In this implementation of domain randomization, we consider various subdomains w
 
 - **Light Subdomain** : This subdomain controls and randomizes the lighting properties of the environment. The following light properties are included:
     - light position:
-        - x_range : [-1.0, 1.0]
-        - y_range : [-1.0, 1.0]
-        - z_range : [-1.0, 1.0]
+        - `x_range` : [-1.0, 1.0]
+        - `y_range` : [-1.0, 1.0]
+        - `z_range` : [-1.0, 1.0]
     - light color:
-        - r_range : [0.9, 1.0]
-        - g_range : [0.9, 1.0]
-        - b_range : [0.0, 1.0]
-        - a_range : [0.0, 1.0]
+        - `r_range` : [0.9, 1.0]
+        - `g_range` : [0.9, 1.0]
+        - `b_range` : [0.0, 1.0]
+        - `a_range` : [0.0, 1.0]
 - **Sensor Subdomain** : This subdomain controls and randomizes sensor properties. The following sensor properties are included:
-    - near_range : [0.01, 1.0]
-    - far_range : [750, 1250]
-    - hfov_range : [70, 130]
-    - positionx_range : [0.0, 0.0]
-    - positiony_range : [1.0, 2.5]
-    - positionz_range : [0.0, 0.0]
-    - orientationx_range : [-0.5, 0.5]
-    - orientationy_range : [-0.5, 0.5]
-    - orientationz_range : [0.0, 0.0]
-    - noise_model : [`None`, `GaussianNoiseModel`, `PoissonNoiseModel`, `RedwoodDepthNoiseModel`, `SaltAndPepperNoiseModel`, `SpeckleNoiseModel`]
+    - `near_range` : [0.01, 1.0]
+    - `far_range` : [750, 1250]
+    - `hfov_range` : [70, 130]
+    - `positionx_range` : [0.0, 0.0]
+    - `positiony_range` : [1.0, 2.5]
+    - `positionz_range` : [0.0, 0.0]
+    - `orientationx_range` : [-0.5, 0.5]
+    - `orientationy_range` : [-0.5, 0.5]
+    - `orientationz_range` : [0.0, 0.0]
+    - `noise_model` : [`None`, `GaussianNoiseModel`, `PoissonNoiseModel`, `RedwoodDepthNoiseModel`, `SaltAndPepperNoiseModel`, `SpeckleNoiseModel`]
 - **Agent Subdomain** : This subdomain controls and randomizes agent properties. The following agent properties are included:
-    - height_range : [1.5, 2.5]
-    - radius_range : [0.1, 2.1]
-    - linear_acceleration_range : [10.0, 40.0]
-    - angular_acceleration_range : [6.28, 18.84]
-    - linear_friction_range : [0.1, 2.5]
-    - angular_friction_range : [1.0, 2.0]
+    - `height_range` : [1.5, 2.5]
+    - `radius_range` : [0.1, 2.1]
+    - `linear_acceleration_range` : [10.0, 40.0]
+    - `angular_acceleration_range` : [6.28, 18.84]
+    - `linear_friction_range` : [0.1, 2.5]
+    - `angular_friction_range` : [1.0, 2.0]
 - **Action Space Subdomain** : This subdomain randomizes the properties of the actions taken by the government. These properties include:
-    - forward_range : [0.05, 0.50]
-    - turn_range : [5, 15]
+    - `forward_range` : [0.05, 0.50]
+    - `turn_range` : [5, 15]
 - **Object Subdomain** : This subdomain allows placement of random number of objects at random navigable positions in the navmesh. It includes the following properties.
-    - num_objects_range : [0, 10]
-    - physics_config_file : This configuration file is used by `habitat-sim` to load the relevant objecs before-hand. If not specified, `habitat-sim` will use its default domain randomization file[link](https://github.com/facebookresearch/habitat-sim/blob/master/data/default.phys_scene_config.json).
+    - `num_objects_range` : [0, 10]
+    - `physics_config_file` : This configuration file is used by `habitat-sim` to load the relevant objecs before-hand. If not specified, `habitat-sim` will use its default domain randomization file[link](https://github.com/facebookresearch/habitat-sim/blob/master/data/default.phys_scene_config.json).
     
 The properties of each subdomain are specified using `json` files in `configs/domain_randomization/subdomain_properties`. Users can modify the properties according to their needs and also specify their own `json` files containing properties for a subdomain. If a particular property is not specified the implementation will automatically always fall back to the original value of that property. The subdomains to be included in the current randomization process are specified in `configs/domain_randomization/default.domain_randomization_properties.json`. To check how to enable domain randomization see `configs/tasks/pointnav_dr.yaml` (just have to set `ENABLE=True`).
 
