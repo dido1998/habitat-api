@@ -78,5 +78,11 @@ The following examples demonstrates domain randmization. Each example for each s
   <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/object_1.png" width="300" />
   <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/object_2.png" width="300" /> 
   <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/object_3.png" width="300" />
+  
+  
+### Noise example
+<p align="center">
+  <img width="560" height="300" src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/noise_addition_example.png">
+</p>
 
 
