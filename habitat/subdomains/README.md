@@ -64,7 +64,7 @@ The following examples demonstrates domain randmization. Each example for each s
  <p float="left">
   <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_1.png" width="300" />
   <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_6.png" width="300" /> 
-  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_3.png" width="300" />
+  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_5.png" width="300" />
 </p>
 
 ###  Light Subdomain
