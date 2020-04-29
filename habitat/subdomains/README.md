@@ -1,7 +1,7 @@
 # Domain Randomization
 
 ## Motivation
-Deep RL are sample ineffecient and hence cannot be easily transferred from simulated environments to real environments. Domain randomization is one of the approaches used to tackle the sample ineffeciency of RL algorithms. Using domain randomization, we can create multiple variants of the same environment by randomizing certain properties of the environments(eg: lighting, camera angle, noise, sensor height etc.). When a Deep RL agent is trained on these variants of the simulated environment, it may consider the real environment as just another variant of the simulated environment. We also aim to explore whether agents trained with domain randomization outperform agents without domain randomization.
+Deep RL algorithms are sample ineffecient and hence cannot be easily transferred from simulated environments to real environments. Domain randomization is one of the approaches used to tackle the sample ineffeciency of RL algorithms. Using domain randomization, we can create multiple variants of the same environment by randomizing certain properties of the environments(eg: lighting, camera angle, noise, sensor height etc.). When a Deep RL agent is trained on these variants of the simulated environment, it may consider the real environment as just another variant of the simulated environment. We also aim to explore whether agents trained with domain randomization outperform agents without domain randomization.
 
 ## Implementation
 ### Subdomains
