@@ -36,6 +36,8 @@ class AgentSubdomain(Subdomain):
 
 	def sample(self):
 		original_probability = self.get_property("original_probability")
+		if original_probability is None:
+			original_probability = 0.0
 		if random.uniform(0, 1) < original_probability:
 			self.set_agent_configs(self.original_height, self.original_radius, self.original_linear_acceleration, self.original_angular_acceleration, self.original_linear_friction, self.original_angular_friction)
 		else:

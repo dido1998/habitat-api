@@ -28,6 +28,8 @@ class ActionSpaceSubdomain(Subdomain):
 
 	def sample(self):
 		original_probability = self.get_property("original_probability")
+		if original_probability is None:
+			original_probability = 0.0
 		if random.uniform(0, 1) < original_probability:
 			for action in self.mapping:
 				if self.original[action] is None:

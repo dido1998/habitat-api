@@ -40,6 +40,8 @@ class ObjectSubdomain(Subdomain):
                 self.sim._sim.remove_object(object_id)
             self.added_object_ids = []
         original_probability = self.get_property("original_probability")
+        if original_probability is None:
+            original_probability = 0.0
         if random.uniform(0, 1) < original_probability:
             return
         else:

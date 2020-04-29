@@ -102,6 +102,8 @@ class SensorSubdomain(Subdomain):
 
 	def sample(self):		
 		original_probability = self.get_property("original_probability")
+		if original_probability is None:
+			original_probability = 0.0
 		if random.uniform(0, 1) < original_probability:
 			self.set_sensor_configs(self.original_near, self.original_far, self.original_hfov, self.original_positionx, self.original_positiony, self.original_positionz, self.original_orientationx, self.original_orientationy, self.original_orientationz, self.original_noise_model)
 		else:

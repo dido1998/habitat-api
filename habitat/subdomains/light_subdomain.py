@@ -26,6 +26,8 @@ class LightSubdomain(Subdomain):
 
 	def sample(self):
 		original_probability = self.get_property("original_probability")
+		if original_probability is None:
+			original_probability = 0.0
 		if random.uniform(0, 1) < original_probability:
 			lighting = [LightInfo(position=[1.0, 1.0, 1.0], color = [1.0, 1.0, 1.0, 1.0], model=LightPositionModel.CAMERA)]
 			self.sim.set_light_setup(lighting)
