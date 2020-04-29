@@ -40,7 +40,7 @@ In this implementation of domain randomization, we consider various subdomains w
     - turn_range : [5, 15]
 - **Object Subdomain** : This subdomain allows placement of random number of objects at random navigable positions in the navmesh. It includes the following properties.
     - num_objects_range : [0, 10]
-    - physics_config_file : This configuration file is used by `habitat-sim` to load the relevant objecs before-hand. If not specified, `habitat-sim` will use its default domain randomization file(link)[https://github.com/facebookresearch/habitat-sim/blob/master/data/default.phys_scene_config.json].
+    - physics_config_file : This configuration file is used by `habitat-sim` to load the relevant objecs before-hand. If not specified, `habitat-sim` will use its default domain randomization file[link](https://github.com/facebookresearch/habitat-sim/blob/master/data/default.phys_scene_config.json).
     
 The properties of each subdomain are specified using `json` files in `configs/domain_randomization/subdomain_properties`. Users can modify the properties according to their needs and also specify their own `json` files containing properties for a subdomain. If a particular property is not specified the implementation will automatically always fall back to the original value of that property. The subdomains to be included in the current randomization process are specified in `configs/domain_randomization/default.domain_randomization_properties.json`. To check how to enable domain randomization see `configs/tasks/pointnav_dr.yaml` (just have to set `ENABLE=True`).
 
