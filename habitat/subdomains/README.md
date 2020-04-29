@@ -61,7 +61,21 @@ The following examples demonstrates domain randmization. Each example for each s
 
 ### Sensor Subomain
  <p float="left">
-  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_1.png" width="350" />
-  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_6.png" width="350" /> 
-  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_3.png" width="350" />
+  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_1.png" width="300" />
+  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_6.png" width="300" /> 
+  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_3.png" width="300" />
 </p>
+
+###  Light Subdomain
+<p float="left">
+  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/light_1.png" width="300" />
+  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/light_2.png" width="300" /> 
+  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/light_3.png" width="300" />
+  
+### Object Subdomain
+<p float="left">
+  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/object_1.png" width="300" />
+  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/object_2.png" width="300" /> 
+  <img src="https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/object_3.png" width="300" />
+
+
