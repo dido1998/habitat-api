@@ -54,3 +54,12 @@ Users may want to add more subdomains for randomization. For example, `habitat-s
 - Create a `<subdomain_name>_subdomain.json` file in `configs/domain_randomization/subdomain_properties`. This file contains the properties of the subdomain and their possible values. For reference, check `configs/domain_randomization/subdomain_properties/light_subdomain.json`.
 - Add `<subdomain_name>_subdomain.json` to `configs/domain_randomization/default.domain_randomization_properties.json`. 
 - Implement `<subdomain_name>_subdomain.py` in `habitat/subdomains`. The subdomain is implemented as a class which extends `habitat.core.subdomain.Subdomain`. Each subdomain class must implement the `sample()` function which samples random values for each property in the subdomain and sets them in the environment. For reference, please check `habitat/subdomains/light_subdomain.py`. After this you should add the required import to `habitat/subdomain/registration.py`.
+
+
+## Examples
+The following examples demonstrates domain randmization. Each example for each subdomain has varying properties that are randomly selected everytime `env.reset()` is called.
+
+### Sensor Subomain
+     Example 1             |        Example 2         |       Example 3      |       
+:-------------------------:|:------------------------:|:--------------------:|
+![](https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_1.png)  |  ![](https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_2.png)|![](https://github.com/dido1998/habitat-api/blob/domain_randomization/habitat/subdomains/examples/sensor_3.png)
