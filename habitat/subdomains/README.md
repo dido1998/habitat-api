@@ -35,7 +35,7 @@ In this implementation of domain randomization, we consider various subdomains w
     - `angular_acceleration_range` : [6.28, 18.84]
     - `linear_friction_range` : [0.1, 2.5]
     - `angular_friction_range` : [1.0, 2.0]
-- **Action Space Subdomain** : This subdomain randomizes the properties of the actions taken by the government. These properties include:
+- **Action Space Subdomain** : This subdomain randomizes the properties of the actions taken by the agent. These properties include:
     - `forward_range` : [0.05, 0.50]
     - `turn_range` : [5, 15]
 - **Object Subdomain** : This subdomain allows placement of random number of objects at random navigable positions in the navmesh. It includes the following properties.
